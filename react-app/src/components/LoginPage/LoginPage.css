@@ -27,7 +27,7 @@
 
 .logo-holder {
   /* background-image: url("https://static.cdninstagram.com/rsrc.php/v3/yi/r/ZFtnMBJnHU_.png"); */
-  background-image: url("../../images/text-1677259699931.png");
+  background-image: url("../../images/login-logo-2.png");
   background-position: 0px -554px;
   background-size: auto;
   width: 175px;
@@ -35,6 +35,14 @@
   margin: 36px 0px;
   background-repeat: no-repeat;
   display: inline-block;
+}
+
+.logo-wrapper{
+  /* height: 300px; */
+  width: 300px;
+  position: relative;
+  right: 60px;
+  /* border: solid 1px red; */
 }
 
 .form-container {

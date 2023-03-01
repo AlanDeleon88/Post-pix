@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { login } from "../../store/session";
-import logo from "../../images/text-1677259699931.png";
+// import logo from "../../images/login-logo-2";
+import logo from '../../images/login-logo-2.png'
 
 const LoginForm = () => {
   const [errors, setErrors] = useState([]);
