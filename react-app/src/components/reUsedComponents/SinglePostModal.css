@@ -79,12 +79,14 @@
   align-items: center;
   height: 40px;
   padding: 6px 16px 8px;
+  background-color: white;
 }
 
 .post-modal-icons-likes-comments {
   height: 24px;
   width: 24px;
   padding: 8px;
+  background-color: white;
 }
 
 .except-first-icon-in-modal {
@@ -94,6 +96,7 @@
 .post-modal-likes-count {
   padding: 0px 16px;
   margin-bottom: 8px;
+  background-color: white;
 }
 
 .post-modal-date-posted {

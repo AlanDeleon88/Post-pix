@@ -30,3 +30,7 @@
     object-fit: cover;
     border-radius: 100%;
 }
+
+.no-styling-actual{
+    background-color: white;
+}
