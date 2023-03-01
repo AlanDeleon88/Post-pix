@@ -14,7 +14,7 @@ const NavBar = () => {
       <div className="navbar-child logo-portion">
         <NavLink to={`/`}>
           <div className="navbar-logo-container">
-            <img className="logo-wrapper" src={logo} alt="logo" />
+            <img className="logo-wrapper-home" src={logo} alt="logo" />
           </div>
         </NavLink>
       </div>

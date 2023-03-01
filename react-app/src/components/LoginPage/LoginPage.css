@@ -39,10 +39,11 @@
 
 .logo-wrapper{
   /* height: 300px; */
-  width: 300px;
+  height: 40px;
+  width: 225px;
   position: relative;
-  right: 60px;
-  /* border: solid 1px red; */
+  right: 30px;
+  border: solid 1px red;
 }
 
 .form-container {
