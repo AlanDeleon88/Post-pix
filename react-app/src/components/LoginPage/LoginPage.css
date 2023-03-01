@@ -43,7 +43,7 @@
   width: 225px;
   position: relative;
   right: 30px;
-  border: solid 1px red;
+  /* border: solid 1px red; */
 }
 
 .form-container {
