@@ -4,19 +4,19 @@ from flask_login import UserMixin
 from datetime import datetime
 
 follows = db.Table('follows',
-    db.Column('follower_id', db.Integer, db.ForeignKey(add_prefix_for_prod('users.id'))),
-    db.Column('followed_id', db.Integer, db.ForeignKey(add_prefix_for_prod('users.id'))),
+    db.Column('follower_id', db.Integer, db.ForeignKey('users.id')),
+    db.Column('followed_id', db.Integer, db.ForeignKey('users.id')),
     db.UniqueConstraint('follower_id', 'followed_id')
 )
 
-if environment == "production":
-    follows.schema = SCHEMA
+# if environment == "production":
+#     follows.schema = SCHEMA
 
 class User(db.Model, UserMixin):
     __tablename__ = 'users'
 
-    if environment == "production":
-        __table_args__ = {'schema': SCHEMA}
+    # if environment == "production":
+    #     __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(40), nullable=False, unique=True)
