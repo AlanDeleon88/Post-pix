@@ -1,20 +1,16 @@
 """empty message
 
-Revision ID: bd907f496434
-Revises:
-Create Date: 2022-10-24 22:39:19.018237
+Revision ID: a5c7b7bfd30f
+Revises: 
+Create Date: 2023-02-28 17:13:24.218081
 
 """
 from alembic import op
 import sqlalchemy as sa
 
-import os
-environment = os.getenv("FLASK_ENV")
-SCHEMA = os.environ.get("SCHEMA")
-
 
 # revision identifiers, used by Alembic.
-revision = 'bd907f496434'
+revision = 'a5c7b7bfd30f'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -27,6 +23,7 @@ def upgrade():
     sa.Column('username', sa.String(length=40), nullable=False),
     sa.Column('email', sa.String(length=255), nullable=False),
     sa.Column('hashed_password', sa.String(length=255), nullable=False),
+    sa.Column('profile_picture', sa.String(length=255), nullable=True),
     sa.Column('first_name', sa.String(length=255), nullable=False),
     sa.Column('last_name', sa.String(length=255), nullable=False),
     sa.Column('created_at', sa.DateTime(), nullable=True),
@@ -35,11 +32,12 @@ def upgrade():
     sa.UniqueConstraint('email'),
     sa.UniqueConstraint('username')
     )
-    op.create_table('followers',
+    op.create_table('follows',
     sa.Column('follower_id', sa.Integer(), nullable=True),
     sa.Column('followed_id', sa.Integer(), nullable=True),
     sa.ForeignKeyConstraint(['followed_id'], ['users.id'], ),
-    sa.ForeignKeyConstraint(['follower_id'], ['users.id'], )
+    sa.ForeignKeyConstraint(['follower_id'], ['users.id'], ),
+    sa.UniqueConstraint('follower_id', 'followed_id')
     )
     op.create_table('posts',
     sa.Column('id', sa.Integer(), nullable=False),
@@ -73,13 +71,6 @@ def upgrade():
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
-
-    if environment == "production":
-        op.execute(f"ALTER TABLE users SET SCHEMA {SCHEMA};")
-        op.execute(f"ALTER TABLE followers SET SCHEMA {SCHEMA};")
-        op.execute(f"ALTER TABLE posts SET SCHEMA {SCHEMA};")
-        op.execute(f"ALTER TABLE comments SET SCHEMA {SCHEMA};")
-        op.execute(f"ALTER TABLE post_likes SET SCHEMA {SCHEMA};")
     # ### end Alembic commands ###
 
 
@@ -88,6 +79,6 @@ def downgrade():
     op.drop_table('post_likes')
     op.drop_table('comments')
     op.drop_table('posts')
-    op.drop_table('followers')
+    op.drop_table('follows')
     op.drop_table('users')
     # ### end Alembic commands ###
