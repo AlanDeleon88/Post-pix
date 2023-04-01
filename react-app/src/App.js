@@ -52,7 +52,9 @@ function App() {
           </Route>
         ) : (
           <Route path="/" exact={true}>
-            <LoginPage />
+            <div className="splash-container">
+              <LoginPage />
+            </div>
           </Route>
         )}
       </Switch>

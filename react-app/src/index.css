@@ -214,3 +214,11 @@ a {
   color: black;
   text-decoration: none;
 }
+
+.splash-container{
+  height: 97vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border: solid 1px green; */
+}
